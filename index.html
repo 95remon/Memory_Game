@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Memory Color Game</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="game-container">
+    <h1>Memory Color Game</h1>
+    <button id="startBtn">Start</button>
+    <p>Score: <span id="score">0</span></p>
+    <p>High Score: <span id="highScore">0</span></p>
+
+    <div class="grid">
+      <div class="btn red" data-color="red"><span>1</span></div>
+      <div class="btn green" data-color="green"><span>2</span></div>
+      <div class="btn blue" data-color="blue"><span>3</span></div>
+      <div class="btn yellow" data-color="yellow"><span>4</span></div>
+      <div class="btn pink" data-color="pink"><span>5</span></div>
+      <div class="btn orange" data-color="orange"><span>6</span></div>
+      <div class="btn cyan" data-color="cyan"><span>7</span></div>
+      <div class="btn purple" data-color="purple"><span>8</span></div>
+    </div>
+  </div>
+
+  <!-- Center popup for failure -->
+  <div id="popup" class="popup hidden">
+    <div class="popup-content">
+      <h2>❌ Wrong Sequence!</h2>
+      <p>Your score: <span id="finalScore">0</span></p>
+      <button onclick="closePopup()">Try Again</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
