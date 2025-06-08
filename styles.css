@@ -39,6 +39,7 @@ body {
   color: black;
   font-weight: bold;
   font-size: 20px;
+  text-shadow: 0 0 6px white, 0 0 8px white;
 }
 
 .btn.active {
