@@ -3,7 +3,6 @@ const buttons = document.querySelectorAll(".btn");
 const startBtn = document.getElementById("startBtn");
 const scoreText = document.getElementById("score");
 const highScoreText = document.getElementById("highScore");
-
 const popup = document.getElementById("popup");
 const finalScoreText = document.getElementById("finalScore");
 
@@ -12,7 +11,7 @@ let userSequence = [];
 let score = 0;
 let highScore = 0;
 
-// Sounds for each color
+// Preloaded audio map
 const colorSoundMap = {
   red: new Audio("sounds/1.mp3"),
   green: new Audio("sounds/2.mp3"),
@@ -27,12 +26,21 @@ const colorSoundMap = {
 // Fail sound
 const failSound = new Audio("sounds/fail.mp3");
 
+// Preload all sounds
+Object.values(colorSoundMap).forEach(audio => audio.load());
+failSound.load();
+
 function playSound(color) {
   const sound = colorSoundMap[color];
   if (sound) {
-    sound.currentTime = 0;
-    sound.play();
+    const clone = sound.cloneNode();
+    clone.play().catch(() => {});
   }
+}
+
+function playFailSound() {
+  const clone = failSound.cloneNode();
+  clone.play().catch(() => {});
 }
 
 function sleep(ms) {
@@ -61,8 +69,7 @@ function nextRound() {
 }
 
 function resetGame() {
-  failSound.currentTime = 0;
-  failSound.play();
+  playFailSound();
   finalScoreText.textContent = score;
   popup.classList.remove("hidden");
 }

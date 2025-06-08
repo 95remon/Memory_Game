@@ -46,7 +46,7 @@ body {
   box-shadow: 0 0 15px white;
 }
 
-/* Colors */
+/* Color styles */
 .red { background-color: red; }
 .green { background-color: green; }
 .blue { background-color: blue; }
@@ -62,7 +62,7 @@ body {
   margin-bottom: 15px;
 }
 
-/* Popup Styles */
+/* Popup styling */
 .popup {
   position: fixed;
   top: 0;
