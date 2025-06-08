@@ -11,7 +11,7 @@ let userSequence = [];
 let score = 0;
 let highScore = 0;
 
-// Preloaded audio map
+// Preload audio (1–8)
 const colorSoundMap = {
   red: new Audio("sounds/1.mp3"),
   green: new Audio("sounds/2.mp3"),
@@ -26,20 +26,23 @@ const colorSoundMap = {
 // Fail sound
 const failSound = new Audio("sounds/fail.mp3");
 
-// Preload all sounds
+// Preload all
 Object.values(colorSoundMap).forEach(audio => audio.load());
 failSound.load();
 
+// 🔊 Play sound clone at 2x speed
 function playSound(color) {
-  const sound = colorSoundMap[color];
-  if (sound) {
-    const clone = sound.cloneNode();
+  const original = colorSoundMap[color];
+  if (original) {
+    const clone = original.cloneNode();
+    clone.playbackRate = 2.0; // speed x2
     clone.play().catch(() => {});
   }
 }
 
 function playFailSound() {
   const clone = failSound.cloneNode();
+  clone.playbackRate = 2.0; // also fast
   clone.play().catch(() => {});
 }
 
